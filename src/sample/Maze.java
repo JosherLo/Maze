@@ -14,7 +14,7 @@ public class Maze {
         this.m = m;
     }
 
-    public List<Integer> getWallPositon(){
+    public List<Integer> getWallPosition(){
         initSquares();
         List<Integer> lst = new ArrayList<>();
         for(int i: this.squares.keySet()){
