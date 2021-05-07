@@ -41,7 +41,7 @@ public class Main extends Application {
     private int y = 0;
     private int time = 0;
     private EventHandler<KeyEvent> keyEvent;
-    private CreateMaze maze;
+    private Maze maze;
 
     @Override
     public void start(Stage primaryStage) {
@@ -110,7 +110,7 @@ public class Main extends Application {
 
     public void generateMaze(Stage primaryStage, VBox vBox1, Scene scene, StackPane stackPane) {
         vBox1.getChildren().clear();
-        CreateMaze maze = new CreateMaze(this.n, this.m);
+        Maze maze = new Maze(this.n, this.m);
 
         Task<List<Integer>> task = new Task<>() {
                 @Override

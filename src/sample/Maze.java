@@ -1,7 +1,7 @@
 package sample;
 
 import java.util.*;
-public class CreateMaze {
+public class Maze {
     private final int n;
     private final int m;
 
@@ -9,7 +9,7 @@ public class CreateMaze {
     private HashMap<Integer, List<Integer>> squares = new HashMap<>();
     private HashMap<Integer, List<Integer>> squaresOriginal = new HashMap<>();
 
-    public CreateMaze(int n, int m){
+    public Maze(int n, int m){
         this.n = n;
         this.m = m;
     }
