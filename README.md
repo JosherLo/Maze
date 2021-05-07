@@ -22,7 +22,7 @@ Class that generates maze.
 Maze maze = new Maze(n, m);
 ```
 
-Where it generates a CreateMaze object of dimensions n by m.
+Where it generates a Maze object of dimensions n by m.
 
 ```n``` by ```m``` is the same as ```x``` by ```y```.
 
