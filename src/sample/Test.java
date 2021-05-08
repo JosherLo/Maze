@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Test {
+    public static void main(String[] args) {
+        test(2,2);
+    }
     public static void test(int n, int m) {
         System.out.printf("Generating a %d by %d maze......%n", n, m);
         System.out.println("_____________________________________________");

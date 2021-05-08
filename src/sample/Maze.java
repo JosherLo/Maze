@@ -16,18 +16,23 @@ public class Maze {
 
     public List<Integer> getWallPosition(){
         initSquares();
-        List<Integer> lst = new ArrayList<>();
-        for(int i: this.squares.keySet()){
-            lst = this.squares.get(i);
-            break;
-        }
-        if (lst.size() >= ((this.n * this.m) / 500) + 1 + 2 * (this.n + this.m) && (this.m * this.n) / 500 > 0){
-            int times = new Random().nextInt((this.n * this.m) /500) + 1 +  (this.n + this.m);
-            for(int i = 0; i < times; i++){
-                lst.remove(new Random().nextInt(lst.size() - 1));
+        if (n < 2 || m < 2) {
+            return new ArrayList<>();
+        } else {
+            createMaze();
+            List<Integer> lst = new ArrayList<>();
+            for (int i : this.squares.keySet()) {
+                lst = this.squares.get(i);
+                break;
             }
+            if (lst.size() >= ((this.n * this.m) / 500) + 1 + 2 * (this.n + this.m) && (this.m * this.n) / 500 > 0) {
+                int times = new Random().nextInt((this.n * this.m) / 500) + 1 + (this.n + this.m);
+                for (int i = 0; i < times; i++) {
+                    lst.remove(new Random().nextInt(lst.size() - 1));
+                }
+            }
+            return lst;
         }
-        return lst;
     }
 
     public void initSquares(){
@@ -51,8 +56,6 @@ public class Maze {
                 squaresOriginal.get(i - (this.n * this.m) + this.n + this.m).add(i);
             }
         }
-
-        createMaze();
     }
 
     public HashMap<Integer, List<Integer>> getSquares(){
@@ -60,7 +63,7 @@ public class Maze {
     }
 
     public List<Integer> getSquaresList(int num){
-        List<Integer> lst = new ArrayList<Integer>();
+        List<Integer> lst = new ArrayList<>();
         for (int i : squares.keySet()) {
             if (squares.get(i).contains(num)) {
                 lst.add(i);
@@ -74,6 +77,7 @@ public class Maze {
 
     public void makeSame(List<Integer> lst, int num){
         for(int i: squares.get(lst.get(0))){
+            System.out.println("MAKESAME" + i);
             if(!squares.get(lst.get(1)).contains(i)) {
                 squares.get(lst.get(1)).add(i);
             }
@@ -91,11 +95,15 @@ public class Maze {
             for (int i: keys) {
                 try {
                     int num = squares.get(i).get(random.nextInt(squares.get(i).size() - 1));
+                    System.out.println(num + " num " + num);
+                    System.out.println(squares);
                     List<Integer> lst = getSquaresList(num);
-                    if (!squares.get(lst.get(0)).equals(squares.get(lst.get(1)))) {
+                    if (!squares.get(lst.get(0)).equals(squares.get(lst.get(1))) ||
+                       (squares.size() == 2 && squares.get(lst.get(0)).equals(squares.get(lst.get(1))))) {
                         makeSame(lst, num);
                     }
-                } catch (Exception ignored) {}
+                    keys = new ArrayList<>(squares.keySet());
+                } catch (Exception ignored) { }
             }
         }
     }
