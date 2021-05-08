@@ -6,10 +6,6 @@ Has 2 classes, **Maze** and **Test**.
 
 **Main** runs the game.
 
-## Important note
-
-Maze does not generate 1 by n, n by 1, or 2 by 2 maze!
-
 ## Maze.java
 
 Class that generates maze.
