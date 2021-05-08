@@ -49,6 +49,7 @@ public class Main extends Application {
         VBox vBox = new VBox();
         StackPane stackPane = new StackPane(vBox);
         Scene scene = new Scene(stackPane, 600,600);
+        primaryStage.setTitle("Maze");
         primaryStage.setScene(scene);
         primaryStage.show();
         startGame(primaryStage, vBox, scene, stackPane);
