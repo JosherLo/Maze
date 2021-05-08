@@ -92,7 +92,7 @@ public class Main extends Application {
                         alert.setContentText("Maze does not generate 1 by n, n by 1, or 2 by 2 maze!");
                         alert.showAndWait();
                         throw new IllegalArgumentException();
-                    }
+                    } if (this.m < 2 || this.n < 2) throw new IllegalArgumentException(); // 0,0 does not raise an error
                     this.width = (this.n >= this.m) ? 500.0/this.n : 500.0/this.m;
                     this.wallWidth = this.width / 10.0;
                     this.squares = new Region[this.m][this.n];
