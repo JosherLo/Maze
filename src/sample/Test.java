@@ -14,7 +14,7 @@ public class Test {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("HH:mm ss SSS");
         LocalDateTime start = LocalDateTime.now();
         System.out.println("Starting time (HH:mm ss ms): " + start.format(format));
-        List<Integer> list = maze.getWallPositon();
+        List<Integer> list = maze.getWallPosition();
         LocalDateTime end = LocalDateTime.now();
         System.out.println("Ending time (HH:mm ss ms): " + end.format(format));
         System.out.println("_____________________________________________");
