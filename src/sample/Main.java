@@ -134,6 +134,14 @@ public class Main extends Application {
         });
         new Thread(task).start();
         Label generatingLabel = new Label("Generating . . .");
+        Button button = new Button("BACK");
+        button.setOnMouseClicked(mouseEvent -> {
+            stackPane.getChildren().clear();
+            this.timeline.stop();
+            this.timeline.getKeyFrames().clear();
+            vBox1.getChildren().clear();
+            startGame(primaryStage, vBox1, scene, stackPane);
+        });
         generatingLabel.setFont(new Font(20));
         vBox1.getChildren().add(generatingLabel);
         AtomicInteger iter = new AtomicInteger();
@@ -153,6 +161,7 @@ public class Main extends Application {
            if(iter.get() >= 10){
                Label msg = new Label("Please be patient!\nIf you generate a maze greater than 50 by 50,\nit could take a long time!");
                vBox1.getChildren().add(msg);
+               vBox1.getChildren().add(button);
            }
         });
         this.timeline.getKeyFrames().add(keyFrame);
