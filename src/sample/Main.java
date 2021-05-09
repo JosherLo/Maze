@@ -140,6 +140,7 @@ public class Main extends Application {
             stackPane.getChildren().clear();
             this.timeline.stop();
             this.timeline.getKeyFrames().clear();
+            task.cancel();
             vBox1.getChildren().clear();
             startGame(primaryStage, vBox1, scene, stackPane);
         });
@@ -241,7 +242,9 @@ public class Main extends Application {
         Rectangle bottomBorder = new Rectangle(500 + 2 * this.wallWidth, this.wallWidth);
         bottomBorder.setFill(this.wall);
         vBox.getChildren().add(bottomBorder);
-
+        vBox.setMinSize(520,520);
+        vBox.setPrefSize(520,520);
+        vBox.setMaxSize(520,520);
         vBox1.getChildren().add(vBox);
         vBox1.getChildren().add(initOptions(scene, primaryStage, vBox1, stackPane));
         vBox1.setSpacing(10);

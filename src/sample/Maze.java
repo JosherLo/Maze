@@ -14,7 +14,7 @@ public class Maze {
         this.m = m;
     }
 
-    public List<Integer> getWallPosition(){
+    public List<Integer> getWallPosition() {
         initSquares();
         if (n < 2 || m < 2) {
             return new ArrayList<>();
@@ -77,7 +77,6 @@ public class Maze {
 
     public void makeSame(List<Integer> lst, int num){
         for(int i: squares.get(lst.get(0))){
-            System.out.println("MAKESAME" + i);
             if(!squares.get(lst.get(1)).contains(i)) {
                 squares.get(lst.get(1)).add(i);
             }
@@ -95,8 +94,6 @@ public class Maze {
             for (int i: keys) {
                 try {
                     int num = squares.get(i).get(random.nextInt(squares.get(i).size() - 1));
-                    System.out.println(num + " num " + num);
-                    System.out.println(squares);
                     List<Integer> lst = getSquaresList(num);
                     if (!squares.get(lst.get(0)).equals(squares.get(lst.get(1))) ||
                        (squares.size() == 2 && squares.get(lst.get(0)).equals(squares.get(lst.get(1))))) {
