@@ -107,7 +107,7 @@ public static void test(int n, int m)
 
 Outputs the time taken for the maze to generate.
 
-(100 by 100 maze takes aroun 2.5 seconds)
+(100 by 100 maze takes around 2.5 seconds)
 
 ## Main.java
 
